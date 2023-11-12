@@ -13,4 +13,5 @@ func (cr *RoutingConfig) SetRoutes(router *echo.Echo) {
 	router.GET("actresess", cr.ActressesHandler.GetAllActresses)
 	router.GET("actresess/top", cr.ActressesHandler.GetTopActresses)
 	router.POST("actresess/vote", cr.ActressesHandler.VoteActress)
+	router.Static("static", "static")
 }
