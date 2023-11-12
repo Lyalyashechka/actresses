@@ -1,0 +1,6 @@
+server:
+  host: localhost
+  port: 8091
+logger:
+  level: debug
+  app: main_server
