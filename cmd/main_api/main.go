@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/Lyalyashechka/actresses/config"
+	"github.com/Lyalyashechka/actresses/config/middleware"
 	"github.com/Lyalyashechka/actresses/config/routing"
 	actresses_handler "github.com/Lyalyashechka/actresses/internal/actresses/handler/http"
 	actresses_usecase "github.com/Lyalyashechka/actresses/internal/actresses/useCase"
@@ -35,6 +36,8 @@ func main() {
 	configRouting := routing.RoutingConfig{
 		ActressesHandler: actressesHandler,
 	}
+
+	middleware.SetMiddlewares(router)
 	configRouting.SetRoutes(router)
 
 	router.Logger.Fatal(router.Start(configApp.Server.Host + ":" + configApp.Server.Port))
