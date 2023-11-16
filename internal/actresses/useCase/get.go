@@ -7,83 +7,9 @@ import (
 )
 
 func (uc UseCase) GetTopActresses(ctx context.Context) ([]models.Actress, error) {
-	return []models.Actress{
-		models.Actress{
-			Uuid:   "kwa1",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-		models.Actress{
-			Uuid:   "kwa2",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-		models.Actress{
-			Uuid:   "kwa3",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-	}, nil
+	return uc.actressesRepository.SelectTop3Actresses(ctx)
 }
 
 func (uc UseCase) GetAllActresses(ctx context.Context) ([]models.Actress, error) {
-	return []models.Actress{
-		models.Actress{
-			Uuid:   "kwa1",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-		models.Actress{
-			Uuid:   "kwa2",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-		models.Actress{
-			Uuid:   "kwa3",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-		models.Actress{
-			Uuid:   "kwa4",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-		models.Actress{
-			Uuid:   "kwa5",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-		models.Actress{
-			Uuid:   "kwa6",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-		models.Actress{
-			Uuid:   "kwa7",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-		models.Actress{
-			Uuid:   "kwa8",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-		models.Actress{
-			Uuid:   "kwa9",
-			Name:   "Eva",
-			Rating: 5,
-			Photo:  "1669474897_telochki-org-p-koshachya-popa-erotika-60.jpg",
-		},
-	}, nil
+	return uc.actressesRepository.SelectAllActresses(ctx)
 }

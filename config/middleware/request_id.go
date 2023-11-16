@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	context_lib "github.com/Lyalyashechka/actresses/internal/context"
+	context_lib "github.com/Lyalyashechka/actresses/internal/tools/context"
 	"github.com/labstack/echo/v4"
 )
 

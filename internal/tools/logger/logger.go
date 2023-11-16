@@ -3,7 +3,7 @@ package logger
 import (
 	"context"
 
-	context_lib "github.com/Lyalyashechka/actresses/internal/context"
+	context_lib "github.com/Lyalyashechka/actresses/internal/tools/context"
 	"github.com/sirupsen/logrus"
 )
 

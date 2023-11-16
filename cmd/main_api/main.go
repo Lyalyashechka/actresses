@@ -7,8 +7,10 @@ import (
 	"github.com/Lyalyashechka/actresses/config/middleware"
 	"github.com/Lyalyashechka/actresses/config/routing"
 	actresses_handler "github.com/Lyalyashechka/actresses/internal/actresses/handler/http"
+	actresses_repository "github.com/Lyalyashechka/actresses/internal/actresses/repository/postgre"
 	actresses_usecase "github.com/Lyalyashechka/actresses/internal/actresses/useCase"
-	hard_logger "github.com/Lyalyashechka/actresses/internal/logger"
+	hard_logger "github.com/Lyalyashechka/actresses/internal/tools/logger"
+	"github.com/Lyalyashechka/actresses/internal/tools/postgre"
 	"github.com/labstack/echo/v4"
 )
 
@@ -30,7 +32,13 @@ func main() {
 		panic(err)
 	}
 
-	actressesUseCase := actresses_usecase.New(logger)
+	db, err := postgre.InitDB(configApp.Postgres)
+	if err != nil {
+		panic(err)
+	}
+
+	actressesRepository := actresses_repository.New(logger, db)
+	actressesUseCase := actresses_usecase.New(logger, actressesRepository)
 	actressesHandler := actresses_handler.New(logger, actressesUseCase)
 
 	configRouting := routing.RoutingConfig{

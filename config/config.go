@@ -1,18 +1,27 @@
 package config
 
 import (
-	"github.com/Lyalyashechka/actresses/internal/logger"
+	"github.com/Lyalyashechka/actresses/internal/tools/logger"
 	"github.com/spf13/viper"
 )
 
 type Config struct {
-	Server Server
-	Logger logger.Config
+	Server   Server
+	Logger   logger.Config
+	Postgres Postgres
 }
 
 type Server struct {
 	Host string
 	Port string
+}
+
+type Postgres struct {
+	User     string `mapstructure:"user"`
+	DBName   string `mapstructure:"dbname"`
+	Password string `mapstructure:"password"`
+	Host     string `mapstructure:"host"`
+	Port     int    `mapstructure:"port"`
 }
 
 func LoadConfig(config *Config, path string) error {

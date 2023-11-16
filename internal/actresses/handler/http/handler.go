@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/Lyalyashechka/actresses/internal/actresses"
-	"github.com/Lyalyashechka/actresses/internal/logger"
 	"github.com/Lyalyashechka/actresses/internal/models"
+	"github.com/Lyalyashechka/actresses/internal/tools/logger"
 	"github.com/labstack/echo/v4"
 )
 

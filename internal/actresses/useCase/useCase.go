@@ -1,13 +1,18 @@
 package usecase
 
-import "github.com/Lyalyashechka/actresses/internal/logger"
+import (
+	"github.com/Lyalyashechka/actresses/internal/actresses"
+	"github.com/Lyalyashechka/actresses/internal/tools/logger"
+)
 
 type UseCase struct {
-	logger logger.Logger
+	logger              logger.Logger
+	actressesRepository actresses.Repository
 }
 
-func New(logger logger.Logger) UseCase {
+func New(logger logger.Logger, actressesRepository actresses.Repository) UseCase {
 	return UseCase{
-		logger: logger,
+		logger:              logger,
+		actressesRepository: actressesRepository,
 	}
 }

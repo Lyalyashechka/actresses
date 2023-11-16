@@ -4,3 +4,9 @@ server:
 logger:
   level: debug
   app: main_server
+postgres:
+  host: localhost
+  port: 5432
+  dbname: pornacctresses
+  user: postgres
+  password: 1234
