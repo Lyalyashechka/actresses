@@ -7,5 +7,5 @@ import (
 )
 
 func (uc UseCase) VoteActress(ctx context.Context, vote models.Vote) error {
-	return nil
+	return uc.actressesRepository.AddVotes(ctx, vote)
 }
