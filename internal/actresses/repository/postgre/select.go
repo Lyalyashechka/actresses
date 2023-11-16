@@ -18,7 +18,7 @@ func (r Postgre) SelectAllActresses(ctx context.Context) ([]models.Actress, erro
 
 func (r Postgre) SelectTop3Actresses(ctx context.Context) ([]models.Actress, error) {
 	var actresses []models.Actress
-	res := r.db.Table(models.Actress{}.TableName()).Find(&actresses).Order("rating desc").Limit(3)
+	res := r.db.Table(models.Actress{}.TableName()).Order("rating desc").Limit(3).Find(&actresses)
 	if err := res.Error; err != nil {
 		return []models.Actress{}, err
 	}
